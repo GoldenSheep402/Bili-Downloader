@@ -22,6 +22,8 @@ func main() {
 	err := bili.GetApi(&VideoInfo)
 	if err != nil {
 		fmt.Println("error: ", err)
+		fmt.Println("Press any key to exit...")
+		fmt.Scanln()
 		return
 	}
 
