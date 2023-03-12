@@ -35,3 +35,7 @@ windows:
 clean:
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)*$(EXTENSION)
+
+install-ffmpeg:
+	cd lib && git clone git@github.com:FFmpeg/FFmpeg.git
+
