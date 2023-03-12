@@ -15,13 +15,12 @@ You could find your SESSDATA after your log in bilibili and find it in request h
 ![Snipaste_2023-03-12_15-16-17](https://user-images.githubusercontent.com/67376942/224530152-766a2f6d-6d0a-48c8-8d00-d66037385df1.png)
 
 ```
-make install-ffmpeg // install ffmpeg
 make
  .\BiliDownloader.exe
 ```
 
-- the file will be named as `.\(your bid).mp4` 
+- the file will be saved at ./download_path named as `{bid}{name}.mp4`
 
+![Snipaste_2023-03-12_22-06-51](https://user-images.githubusercontent.com/67376942/224549903-155a47a7-d9d3-44cd-955d-50616fa64df9.png)
 
-![Snipaste_2023-03-12_15-15-12](https://user-images.githubusercontent.com/67376942/224530108-6e475b13-71f3-4f77-8d1f-8bf2655ea978.png)
 
