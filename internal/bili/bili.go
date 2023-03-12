@@ -98,7 +98,7 @@ func GetApi(videoInfo *define.VideoInfo) error {
 	return nil
 }
 
-func GetUrl(videoInfo *define.VideoInfo) {
+func GetUrl(videoInfo *define.VideoInfo, SESSDATA string) {
 	url := videoInfo.Url
 
 	// create an HTTP client
@@ -114,6 +114,14 @@ func GetUrl(videoInfo *define.VideoInfo) {
 	if err != nil {
 		panic(err)
 	}
+
+	cookie := &http.Cookie{
+		Name:   "SESSDATA",
+		Value:  SESSDATA,
+		Domain: "example.com",
+		Path:   "/",
+	}
+	req.AddCookie(cookie)
 
 	// headers
 	req.Header.Set("referer", "https://www.bilibili.com/")

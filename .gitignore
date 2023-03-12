@@ -29,3 +29,4 @@ download_path/data/url.json
 *.mp4
 download_path/audio.mp4
 download_path/video.mp4
+config/config.json

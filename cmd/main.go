@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Bilibili-DL/config"
 	"Bilibili-DL/define"
 	"Bilibili-DL/internal/bili"
 	"Bilibili-DL/internal/downloader"
@@ -10,16 +11,20 @@ import (
 
 func main() {
 
-	var bvid string
-	fmt.Print("Please enter the BID: ")
-	fmt.Scanln(&bvid)
+	bid, sessdata, err := config.GetConfig()
+	if err != nil {
+		fmt.Println("error: ", err)
+		fmt.Println("Press any key to exit...")
+		fmt.Scanln()
+		return
+	}
 
 	VideoInfo := define.VideoInfo{
-		Bvid: bvid,
+		Bvid: bid,
 	}
 
 	// 获取视频api链接
-	err := bili.GetApi(&VideoInfo)
+	err = bili.GetApi(&VideoInfo)
 	if err != nil {
 		fmt.Println("error: ", err)
 		fmt.Println("Press any key to exit...")
@@ -28,7 +33,7 @@ func main() {
 	}
 
 	// 获取实际下载链接
-	bili.GetUrl(&VideoInfo)
+	bili.GetUrl(&VideoInfo, sessdata)
 
 	// 下载音视频
 	downloader.DownloadVideo(&VideoInfo)
