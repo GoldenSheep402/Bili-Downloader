@@ -81,6 +81,10 @@ func GetApi(videoInfo *define.VideoInfo) error {
 	videoInfo.Url = define.BaseUrlVideo + "&cid=" + videoInfo.Cid + "&bvid=" + videoInfo.Bvid
 	fmt.Fprint(os.Stdout, "Url: "+videoInfo.Url+"\n")
 
+	err = os.MkdirAll("./download_path/data", os.ModePerm)
+	if err != nil {
+		panic(err)
+	}
 	// Save the JSON data to a file
 	file, err := os.Create("./download_path/data/cid.json")
 	if err != nil {
@@ -124,6 +128,11 @@ func GetUrl(videoInfo *define.VideoInfo) {
 
 	// read
 	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	err = os.MkdirAll("./download_path/data", os.ModePerm)
 	if err != nil {
 		panic(err)
 	}
