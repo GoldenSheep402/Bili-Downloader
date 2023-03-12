@@ -21,7 +21,8 @@
 # Go workspace file
 go.work
 
-./.history
+./lib/*
+.history
 *.mp4
 download_path/data/cid.json
 download_path/data/url.json
