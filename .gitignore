@@ -22,3 +22,6 @@
 go.work
 
 ./.history
+
+./download_path/*
+./download_path/data/*
