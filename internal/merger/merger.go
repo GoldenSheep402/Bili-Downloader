@@ -6,7 +6,7 @@ import (
 )
 
 func MergeVideoAndAudio(videoPath string, audioPath string, outputPath string) error {
-	cmd := exec.Command("/lib/ffmpeg/bin/ffmpeg", "-y", "-i", videoPath, "-i", audioPath, "-c", "copy", outputPath)
+	cmd := exec.Command("ffmpeg", "-y", "-i", videoPath, "-i", audioPath, "-c", "copy", outputPath)
 	err := cmd.Run()
 	if err != nil {
 		fmt.Println("Failed to merge video and audio:", err)
