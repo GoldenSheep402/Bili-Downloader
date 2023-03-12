@@ -2,11 +2,13 @@
 
 write by go (For fun)
 
-I will achieve High Resolution Video later (it seems that it didn't responce all data)
+I will achieve High Resolution Video later(it seems that it didn't responce all data(it needs cookie))
 
-This project needs ffmpeg dependence
+~~This project needs ffmpeg dependence~~
+Now use cgo
  
 ```
+make install-ffmpeg // install ffmpeg
 make
  .\BiliDownloader.exe
 ```
