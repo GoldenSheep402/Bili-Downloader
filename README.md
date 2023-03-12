@@ -5,7 +5,8 @@ write by go (For fun)
 I will achieve High Resolution Video later(it seems that it didn't responce all data(it needs cookie))
 
 ~~This project needs ffmpeg dependence~~
-Now use cgo
+
+put ffmpeg in /lib
 
 write bid and your SESSDATA in config.json, it will load it when exec
 
