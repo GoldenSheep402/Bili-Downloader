@@ -76,7 +76,7 @@ func GetApi(videoInfo *define.VideoInfo) error {
 	fmt.Fprint(os.Stdout, "Url: "+videoInfo.Url+"\n")
 
 	// Save the JSON data to a file
-	file, err := os.Create("./infodata/cid.json")
+	file, err := os.Create("./download_path/data/cid.json")
 	if err != nil {
 		panic(err)
 	}
@@ -122,7 +122,7 @@ func GetUrl(videoInfo *define.VideoInfo) {
 		panic(err)
 	}
 
-	file, err := os.Create("./infodata/url.json")
+	file, err := os.Create("./download_path/data/url.json")
 	if err != nil {
 		panic(err)
 	}

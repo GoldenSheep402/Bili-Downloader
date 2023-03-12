@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff4fe720-5e54-47ca-9433-d704d5cee75b" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Bili-D.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infodata/cid.json" beforeDir="false" afterPath="$PROJECT_DIR$/download_path/data/cid.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infodata/url.json" beforeDir="false" afterPath="$PROJECT_DIR$/download_path/data/url.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/bili/bili.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/bili/bili.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
