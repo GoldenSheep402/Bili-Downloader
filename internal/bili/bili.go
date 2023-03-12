@@ -4,6 +4,7 @@ import (
 	"Bilibili-DL/define"
 	"crypto/tls"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -35,6 +36,11 @@ type ResponseData struct {
 }
 
 func GetApi(videoInfo *define.VideoInfo) error {
+	if videoInfo.Bvid == "" {
+		err := errors.New("BV ID is required")
+		return err
+	}
+
 	url := define.BaseUrlCid + videoInfo.Bvid
 
 	// Create an HTTP client with headers
@@ -54,7 +60,7 @@ func GetApi(videoInfo *define.VideoInfo) error {
 	// Send the GET request
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		return err
 	}
 	defer resp.Body.Close()
 
