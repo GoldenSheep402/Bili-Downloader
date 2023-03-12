@@ -15,7 +15,6 @@ You could find your SESSDATA after your log in bilibili and find it in request h
 ![Snipaste_2023-03-12_15-16-17](https://user-images.githubusercontent.com/67376942/224530152-766a2f6d-6d0a-48c8-8d00-d66037385df1.png)
 
 ```
-make install-ffmpeg // install ffmpeg
 make
  .\BiliDownloader.exe
 ```
