@@ -6,7 +6,7 @@ I will achieve High Resolution Video later(it seems that it didn't responce all 
 
 ~~This project needs ffmpeg dependence~~
 
-put ffmpeg in /lib
+it need ffmpeg
 
 write bid and your SESSDATA in config.json, it will load it when exec
 
