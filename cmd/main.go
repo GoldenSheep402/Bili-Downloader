@@ -21,7 +21,7 @@ func main() {
 	// 获取视频api链接
 	err := bili.GetApi(&VideoInfo)
 	if err != nil {
-		fmt.Println("It seems that BID is wrong")
+		fmt.Println("error: ", err)
 		return
 	}
 
@@ -34,4 +34,8 @@ func main() {
 
 	// 合并音视频
 	merger.MergeVideoAndAudio("./download_path/video.mp4", "./download_path/audio.mp4", "./"+VideoInfo.Bvid+".mp4")
+
+	fmt.Println("Download completed successfully!")
+	fmt.Println("Press any key to exit...")
+	fmt.Scanln()
 }
