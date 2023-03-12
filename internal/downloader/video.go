@@ -1,7 +1,7 @@
 package downloader
 
 import (
-	"Bilibili-DL/define"
+	"Bili-Downloader/define"
 	"fmt"
 	"github.com/schollz/progressbar/v3"
 	"io"
@@ -9,14 +9,13 @@ import (
 	"os"
 )
 
-func DownloadVideo(VideoInfo *define.VideoInfo) {
-	url := VideoInfo.VideoUrl[0]
+func DownloadVideo(VideoInfo *define.VideoInfo, index int) {
 
 	// 创建http请求客户端
 	client := &http.Client{}
 
 	// 创建http请求
-	req, err := http.NewRequest("GET", url, nil)
+	req, err := http.NewRequest("GET", VideoInfo.VideoUrl[index], nil)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -57,5 +56,5 @@ func DownloadVideo(VideoInfo *define.VideoInfo) {
 	}
 
 	// 下载完成
-	fmt.Println("Video下载完成！")
+	fmt.Println("Video:" + "[" + VideoInfo.Part[index] + "]" + "下载完成！")
 }

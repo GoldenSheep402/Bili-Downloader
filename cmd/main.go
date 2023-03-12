@@ -1,11 +1,10 @@
 package main
 
 import (
-	"Bilibili-DL/config"
-	"Bilibili-DL/define"
-	"Bilibili-DL/internal/bili"
-	"Bilibili-DL/internal/downloader"
-	"Bilibili-DL/internal/merger"
+	"Bili-Downloader/config"
+	"Bili-Downloader/define"
+	"Bili-Downloader/internal/bili"
+	"Bili-Downloader/internal/downloader"
 	"fmt"
 )
 
@@ -35,12 +34,8 @@ func main() {
 	// 获取实际下载链接
 	bili.GetUrl(&VideoInfo, sessdata)
 
-	// 下载音视频
-	downloader.DownloadVideo(&VideoInfo)
-	downloader.DownloadAudio(&VideoInfo)
-
-	// 合并音视频
-	merger.MergeVideoAndAudio("./download_path/video.mp4", "./download_path/audio.mp4", "./"+VideoInfo.Bvid+".mp4")
+	// 下载音视频并合并
+	downloader.Download(&VideoInfo)
 
 	fmt.Println("Download completed successfully!")
 	fmt.Println("Press any key to exit...")

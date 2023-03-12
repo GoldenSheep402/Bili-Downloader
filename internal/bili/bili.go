@@ -1,7 +1,7 @@
 package bili
 
 import (
-	"Bilibili-DL/define"
+	"Bili-Downloader/define"
 	"crypto/tls"
 	"encoding/json"
 	"errors"
@@ -77,9 +77,15 @@ func GetApi(videoInfo *define.VideoInfo) error {
 	}
 
 	// Get the cid
-	videoInfo.Cid = strconv.Itoa(data.Data[0].Cid)
-	videoInfo.Url = define.BaseUrlVideo + "&cid=" + videoInfo.Cid + "&bvid=" + videoInfo.Bvid
-	fmt.Fprint(os.Stdout, "Url: "+videoInfo.Url+"\n")
+	videoInfo.Part = make([]string, len(data.Data))
+	videoInfo.Cid = make([]string, len(data.Data))
+	videoInfo.Url = make([]string, len(data.Data))
+	for i := 0; i < len(data.Data); i++ {
+		print(data.Data[i].Part + "\n")
+		videoInfo.Part[i] = data.Data[i].Part
+		videoInfo.Cid[i] = strconv.Itoa(data.Data[i].Cid)
+		videoInfo.Url[i] = define.BaseUrlVideo + "&cid=" + videoInfo.Cid[i] + "&bvid=" + videoInfo.Bvid
+	}
 
 	err = os.MkdirAll("./download_path/data", os.ModePerm)
 	if err != nil {
@@ -99,8 +105,6 @@ func GetApi(videoInfo *define.VideoInfo) error {
 }
 
 func GetUrl(videoInfo *define.VideoInfo, SESSDATA string) {
-	url := videoInfo.Url
-
 	// create an HTTP client
 	client := &http.Client{
 		Transport: &http.Transport{
@@ -109,64 +113,50 @@ func GetUrl(videoInfo *define.VideoInfo, SESSDATA string) {
 		Timeout: time.Second * 30,
 	}
 
-	// create an HTTP request
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		panic(err)
-	}
+	// make a slice to store the video and audio urls
+	videoInfo.VideoUrl = make([]string, len(videoInfo.Cid))
+	videoInfo.AudioUrl = make([]string, len(videoInfo.Cid))
+	for index := 0; index < len(videoInfo.Cid); index++ {
+		// create an HTTP request
+		req, err := http.NewRequest("GET", videoInfo.Url[index], nil)
+		if err != nil {
+			panic(err)
+		}
 
-	cookie := &http.Cookie{
-		Name:   "SESSDATA",
-		Value:  SESSDATA,
-		Domain: "example.com",
-		Path:   "/",
-	}
-	req.AddCookie(cookie)
+		cookie := &http.Cookie{
+			Name:   "SESSDATA",
+			Value:  SESSDATA,
+			Domain: "example.com",
+			Path:   "/",
+		}
+		req.AddCookie(cookie)
 
-	// headers
-	req.Header.Set("referer", "https://www.bilibili.com/")
-	req.Header.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0")
+		// headers
+		req.Header.Set("referer", "https://www.bilibili.com/")
+		req.Header.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0")
 
-	// send the request
-	resp, err := client.Do(req)
-	if err != nil {
-		panic(err)
-	}
-	defer resp.Body.Close()
+		// send the request
+		resp, err := client.Do(req)
+		if err != nil {
+			panic(err)
+		}
+		defer resp.Body.Close()
 
-	// read
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		panic(err)
-	}
+		// read
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			panic(err)
+		}
 
-	err = os.MkdirAll("./download_path/data", os.ModePerm)
-	if err != nil {
-		panic(err)
-	}
+		// parse the JSON data
+		var data define.VideoResponse
+		if err := json.Unmarshal(body, &data); err != nil {
+			panic(err)
+		}
 
-	file, err := os.Create("./download_path/data/url.json")
-	if err != nil {
-		panic(err)
+		// Get video and audio data and titile(part)
+		videoInfo.VideoUrl[index] = data.Data.Dash.Video[0].BaseUrl
+		videoInfo.AudioUrl[index] = data.Data.Dash.Audio[0].BaseUrl
 	}
-	defer file.Close()
-
-	if _, err := file.Write(body); err != nil {
-		panic(err)
-	}
-
-	// parse the JSON data
-	var data define.VideoResponse
-	if err := json.Unmarshal(body, &data); err != nil {
-		panic(err)
-	}
-
-	// Get video and audio data
-	for _, v := range data.Data.Dash.Video {
-		videoInfo.VideoUrl = append(videoInfo.VideoUrl, v.BaseUrl)
-	}
-
-	for _, a := range data.Data.Dash.Audio {
-		videoInfo.AudioUrl = append(videoInfo.AudioUrl, a.BaseUrl)
-	}
+	fmt.Fprint(os.Stdout, "Get video and audio data successfully!\n")
 }

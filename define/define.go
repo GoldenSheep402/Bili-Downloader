@@ -2,8 +2,9 @@ package define
 
 type VideoInfo struct {
 	Bvid     string
-	Cid      string
-	Url      string
+	Cid      []string
+	Url      []string
+	Part     []string
 	VideoUrl []string
 	AudioUrl []string
 }
