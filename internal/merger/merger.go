@@ -1,5 +1,7 @@
 package merger
 
+import "C"
+
 import (
 	"fmt"
 	"os/exec"
