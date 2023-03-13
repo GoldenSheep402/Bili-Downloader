@@ -22,20 +22,26 @@ $(BINARY_NAME):
 
 # Build for Linux
 linux:
-	GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_NAME)_$(OSFLAG)_amd64$(EXTENSION) -v ./cmd
+	go env -w CGO_ENABLED="0" GOOS="linux" GOARCH="amd64"
+	$(GOBUILD) -o $(BINARY_NAME)_linux_amd64 -v ./cmd
+	go env -w CGO_ENABLED="1" GOOS="windows" GOARCH="amd64"
 
 # Build for Mac
-darwin:
-	GOOS=darwin GOARCH=amd64 $(GOBUILD) -o $(BINARY_NAME)_$(OSFLAG)_amd64$(EXTENSION) -v ./cmd
+darwin_x86:
+	go env -w CGO_ENABLED="0" GOOS="darwin" GOARCH="amd64"
+	$(GOBUILD) -o $(BINARY_NAME)_darwin_amd64 -v ./cmd
+	go env -w CGO_ENABLED="1" GOOS="windows" GOARCH="amd64"
+
+darwin_arm:
+	go env -w CGO_ENABLED="0" GOOS="darwin" GOARCH="arm64"
+	$(GOBUILD) -o $(BINARY_NAME)_darwin_arm64 -v ./cmd
+	go env -w CGO_ENABLED="1" GOOS="windows" GOARCH="amd64"
 
 # Build for Windows
 windows:
-	GOOS=windows GOARCH=amd64 $(GOBUILD) -o $(BINARY_NAME)_windows_amd64$(EXTENSION) -v ./cmd
+	go env -w CGO_ENABLED="1" GOOS="windows" GOARCH="amd64"
+	$(GOBUILD) -o $(BINARY_NAME)_windows_amd64$(EXTENSION) -v ./cmd
 
 clean:
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)*$(EXTENSION)
-
-install-ffmpeg:
-	cd lib && git clone git@github.com:FFmpeg/FFmpeg.git
-
