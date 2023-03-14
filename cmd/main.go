@@ -5,10 +5,12 @@ import (
 	"Bili-Downloader/define"
 	"Bili-Downloader/internal/bili"
 	"Bili-Downloader/internal/downloader"
+	"Bili-Downloader/utils"
 	"fmt"
 )
 
 func main() {
+	utils.PrintInfo()
 
 	bid, sessdata, err := config.GetConfig()
 	if err != nil {
@@ -37,7 +39,7 @@ func main() {
 	// 下载音视频并合并
 	downloader.Download(&VideoInfo)
 
-	fmt.Println("Download completed successfully!")
-	fmt.Println("Press any key to exit...")
+	utils.PrintQuitInfo()
+
 	fmt.Scanln()
 }
