@@ -20,6 +20,6 @@ func PrintQuitInfo() {
 		"Thank u for using it.\n" +
 		"Have a nice day!\n" +
 		"Press any key to exit...\n")
-
+	fmt.Scanln()
 	os.Exit(1)
 }
