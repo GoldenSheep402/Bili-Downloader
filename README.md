@@ -2,13 +2,15 @@
 
 write by go (For fun)
 
-I will achieve High Resolution Video later(it seems that it didn't responce all data(it needs cookie))
+This project needs ffmpeg dependence
 
-~~This project needs ffmpeg dependence~~
-
-it need ffmpeg
+It needs SESSDATA to get  High Resolution Video(without it, it could only get 480p)
 
 write bid and your SESSDATA in config.json, it will load it when exec
+
+- [x] Episode video download
+- [ ] Download by url
+- [ ] Get High Resolution without SESSDATA
 
 You could find your SESSDATA after your log in bilibili and find it in request header in cookie 
 ![Snipaste_2023-03-12_15-14-29](https://user-images.githubusercontent.com/67376942/224530080-f1d37a74-3cba-433a-8ef4-259755f1b550.png)
@@ -22,6 +24,4 @@ make
 
 - the file will be saved at ./download_path named as `{bid}{name}.mp4`
 
-![Snipaste_2023-03-12_22-06-51](https://user-images.githubusercontent.com/67376942/224549903-155a47a7-d9d3-44cd-955d-50616fa64df9.png)
-
-
+![Snipaste_2023-03-14_23-11-22](https://user-images.githubusercontent.com/67376942/225046480-1b7552f8-acef-47a7-ac94-17a0cedaefb5.png)
