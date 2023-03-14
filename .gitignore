@@ -30,3 +30,10 @@ download_path/data/url.json
 download_path/audio.mp4
 download_path/video.mp4
 config/config.json
+BiliDownloader_darwin_amd64
+BiliDownloader_darwin_arm64
+BiliDownloader_linux_amd64
+download_path/audio.mp4
+download_path/audio.mp4
+download_path/data/cid.json
+download_path/video.mp4
