@@ -3,11 +3,28 @@ package utils
 import (
 	"fmt"
 	"os"
+	"regexp"
 )
 
-// TODO
-func GetBidByUrl() {
+func CheckBid(bid string) bool {
+	re := regexp.MustCompile(`^BV1?[a-zA-Z0-9]{10}$`)
+	if re.MatchString(bid) {
+		return true
+	} else {
+		return false
+	}
+}
 
+// TODO
+func GetBidByUrl() string {
+	var url string
+	fmt.Scan(&url)
+	print(url)
+
+	// regular match
+	re := regexp.MustCompile(`(BV|BV1|BV[a-zA-Z0-9]{2})[a-zA-Z0-9]+`)
+	match := re.FindStringSubmatch(url)
+	return match[0]
 }
 
 func PrintInfo() {

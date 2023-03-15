@@ -12,12 +12,13 @@ import (
 func main() {
 	utils.PrintInfo()
 
-	bid, sessdata, err := config.GetConfig()
-	if err != nil {
-		fmt.Println("error: ", err)
-		fmt.Println("Press any key to exit...")
-		fmt.Scanln()
-		return
+	bid, sessdata, _ := config.GetConfig()
+	if utils.CheckBid(bid) {
+		fmt.Println("Get bid from config successfully.")
+	} else {
+		fmt.Print("Get bid form config ERROR.\nPlease paste the url.\nUrl: ")
+		bid = utils.GetBidByUrl()
+		println(bid)
 	}
 
 	VideoInfo := define.VideoInfo{
@@ -25,7 +26,7 @@ func main() {
 	}
 
 	// 获取视频api链接
-	err = bili.GetApi(&VideoInfo)
+	err := bili.GetApi(&VideoInfo)
 	if err != nil {
 		fmt.Println("error: ", err)
 		fmt.Println("Press any key to exit...")
