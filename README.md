@@ -9,7 +9,7 @@ It needs SESSDATA to get  High Resolution Video(without it, it could only get 48
 write bid and your SESSDATA in config.json, it will load it when exec
 
 - [x] Episode video download
-- [ ] Download by url
+- [x] Download by url
 - [ ] Get High Resolution without SESSDATA
 
 You could find your SESSDATA after your log in bilibili and find it in request header in cookie 
