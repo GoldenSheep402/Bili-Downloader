@@ -25,3 +25,6 @@ make
 - the file will be saved at ./download_path named as `{bid}{name}.mp4`
 
 ![Snipaste_2023-03-14_23-11-22](https://user-images.githubusercontent.com/67376942/225046480-1b7552f8-acef-47a7-ac94-17a0cedaefb5.png)
+
+You could also paste url here if there is nothing in config(But SESSDATA is NESSARY)
+![Snipaste_2023-03-17_22-14-30](https://user-images.githubusercontent.com/67376942/225930086-94321702-c8a0-4bc7-8f70-775eb3619be6.png)
