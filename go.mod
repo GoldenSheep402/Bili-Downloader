@@ -2,7 +2,10 @@ module Bili-Downloader
 
 go 1.20
 
-require github.com/schollz/progressbar/v3 v3.13.0
+require (
+	github.com/google/uuid v1.3.0
+	github.com/schollz/progressbar/v3 v3.13.0
+)
 
 require (
 	github.com/mattn/go-runewidth v0.0.14 // indirect

@@ -38,17 +38,10 @@ func Download(VideoInfo *define.VideoInfo) {
 
 func SaveData(VideoInfo *define.VideoInfo) {
 	// Convert the struct to JSON bytes
-	jsonBytes, err := json.MarshalIndent(VideoInfo, "", "    ")
-	if err != nil {
-
-	}
+	jsonBytes, _ := json.MarshalIndent(VideoInfo, "", "    ")
 
 	// Write the JSON bytes to a file
 	filename := "data.json"
 	dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
-	err = ioutil.WriteFile(filepath.Join(dir, filename), jsonBytes, 0644)
-	if err != nil {
-
-	}
-
+	ioutil.WriteFile(filepath.Join(dir, filename), jsonBytes, 0644)
 }
