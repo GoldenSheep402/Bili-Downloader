@@ -1,10 +1,12 @@
 package config
 
 import (
+	"Bili-Downloader/internal/bili"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 type Config struct {
@@ -33,9 +35,32 @@ func GetConfig() (string, string, error) {
 		return "", "", fmt.Errorf("failed to parse config file: %s", err)
 	}
 
-	// 获取BID和SESSDATA
+	// 获取SESSDATA
+	var sessdata string
+	fmt.Print("Do you want to get SESSDATA by qrCode? (yes/no) ")
+	var answer string
+	_, err = fmt.Scanln(&answer)
+	if err != nil {
+		return "", "", fmt.Errorf("failed to read user input: %s", err)
+	}
+	if strings.ToLower(answer) == "yes" || strings.ToLower(answer) == "y" {
+		sessdata = bili.GetSESSDATA()
+		config.SESSDATA = sessdata
+		// 更新配置文件
+		configBytes, err = json.MarshalIndent(config, "", "    ")
+		if err != nil {
+			return "", "", fmt.Errorf("failed to update config file: %s", err)
+		}
+		err = ioutil.WriteFile("config/config.json", configBytes, 0644)
+		if err != nil {
+			return "", "", fmt.Errorf("failed to update config file: %s", err)
+		}
+	} else {
+		sessdata = config.SESSDATA
+	}
+
+	// 获取BID
 	bid := config.BID
-	sessdata := config.SESSDATA
 
 	return bid, sessdata, nil
 }

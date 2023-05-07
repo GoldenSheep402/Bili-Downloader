@@ -25,7 +25,7 @@ type GetQrcodeRep struct {
 	} `json:"data"`
 }
 
-func GenCookie(c *Cookie) *Cookie {
+func GenCookie(c *Cookie) {
 	uid := uuid.New()
 	uuidString := uid.String()
 	result := fmt.Sprintf("%sinfoc", uuidString[:8]+"-"+uuidString[8:12]+"-"+uuidString[12:16]+"-"+uuidString[16:20]+"-"+uuidString[20:])
@@ -35,8 +35,6 @@ func GenCookie(c *Cookie) *Cookie {
 	buvidString := buvid.String()
 	result = fmt.Sprintf("%sinfoc", buvidString[:8]+"-"+buvidString[8:12]+"-"+buvidString[12:16]+"-"+buvidString[16:20]+"-"+buvidString[20:])
 	c.buvid = result
-
-	return c
 }
 
 func GetQrcode(c *Cookie) *GetQrcodeRep {
@@ -83,4 +81,13 @@ func GetQrcode(c *Cookie) *GetQrcodeRep {
 // TODO
 func ListenQrcode(in *GetQrcodeRep) {
 
+}
+
+func main() {
+	c := &Cookie{}
+	GenCookie(c)
+
+	resp := GetQrcode(c)
+	print(resp)
+	return
 }

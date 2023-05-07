@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff4fe720-5e54-47ca-9433-d704d5cee75b" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download_path/audio.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/get_config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/get_config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/download_path/data/cid.json" beforeDir="false" afterPath="$PROJECT_DIR$/download_path/data/cid.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download_path/video.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/downloader/downloader.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/downloader/downloader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/bili/cookie.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/bili/cookie.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/test/bili_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/login.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,23 +68,43 @@
       <recent name="D:\CodeSpace\Bili-Downlader\download_path" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile 目标.all">
-    <configuration name="go build Bilibili-DL/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go 构建.go build main.go">
+    <configuration name="go build Bili-Downloader/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Bili-Downlader" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="Bilibili-DL/cmd" />
+      <package value="Bili-Downloader/cmd" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build Bilibili-DL/internal/test" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build login.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Bili-Downlader" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Bilibili-DL/internal/test" />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/internal/test/cookie.go" />
+      <filePath value="$PROJECT_DIR$/internal/test/login.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Bili-Downlader" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="Bili-Downloader" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Bili-Downloader/internal/test 中的 TestLogin" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Bili-Downlader" />
+      <working_directory value="$PROJECT_DIR$/internal/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="Bili-Downloader/internal/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestLogin\E$" />
       <method v="2" />
     </configuration>
     <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
@@ -94,20 +113,12 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="build" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="build" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="install-ffmpeg" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="install-ffmpeg" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build main.go" />
+        <item itemvalue="Go 构建.go build Bili-Downloader/cmd" />
+        <item itemvalue="Go 构建.go build login.go" />
+        <item itemvalue="Go 测试.Bili-Downloader/internal/test 中的 TestLogin" />
         <item itemvalue="Makefile 目标.all" />
       </list>
     </recent_temporary>
