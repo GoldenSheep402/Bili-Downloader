@@ -1,18 +1,24 @@
 # Bili-Downloader
 
-write by go (For fun)
+write by go (For fun,so my code might be not so good🥹)
 
-This project needs ffmpeg dependence
+This project needs ffmpeg dependence!
 
 It needs SESSDATA to get  High Resolution Video(without it, it could only get 480p)
 
-write bid and your SESSDATA in config.json, it will load it when exec
+You could write bid and your SESSDATA in config.json(it seems silly), it will load it when exec
+
+Also you could get SESSDATA by scaning the qrcode too.Just take a look in my code.
 
 - [x] Episode video download
 - [x] Download by url
-- [ ] Get High Resolution without SESSDATA
+- [x] Get SESSDATA by scaning qrcode
 
-You could find your SESSDATA after your log in bilibili and find it in request header in cookie 
+TODO
+- [ ] Download list
+- [ ]  .....
+
+You could find your SESSDATA after your log in bilibili and find it in request header in cookies 
 ![Snipaste_2023-03-12_15-14-29](https://user-images.githubusercontent.com/67376942/224530080-f1d37a74-3cba-433a-8ef4-259755f1b550.png)
 
 ![Snipaste_2023-03-12_15-16-17](https://user-images.githubusercontent.com/67376942/224530152-766a2f6d-6d0a-48c8-8d00-d66037385df1.png)
